@@ -3,43 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Snowfall Effect</title>
+  <title>Random Background Color</title>
   <style>
     body {
-      margin: 0;
-      height: 100vh;
-      overflow: hidden;
-      background: #282c34;
+      text-align: center;
+      padding: 20px;
     }
 
-    .snowflake {
-      position: absolute;
-      top: 0;
-      background-color: white;
-      border-radius: 50%;
-      opacity: 0.8;
-      pointer-events: none;
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
+  <h1>Click the button to change the background color!</h1>
+  <button onclick="changeBackgroundColor()">Change Color</button>
+
   <script>
-    function createSnowflake() {
-      const snowflake = document.createElement('div');
-      snowflake.classList.add('snowflake');
-      document.body.appendChild(snowflake);
-
-      snowflake.style.left = Math.random() * window.innerWidth + 'px';
-      snowflake.style.width = Math.random() * 10 + 5 + 'px';
-      snowflake.style.height = snowflake.style.width;
-      snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
-
-      setTimeout(() => {
-        snowflake.remove();
-      }, 5000);
+    function changeBackgroundColor() {
+      const colors = ["#FF5733", "#33FF57", "#5733FF", "#F5FF33", "#33FFF5"];
+      document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
     }
-
-    setInterval(createSnowflake, 200);
   </script>
 </body>
 </html>
